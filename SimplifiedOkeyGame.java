@@ -32,7 +32,38 @@ public class SimplifiedOkeyGame {
      * other players get 14 tiles, this method assumes the tiles are already shuffled
      */
     public void distributeTilesToPlayers() {
+        int distributionNumber = 0;
+        int numberOfTiles;
+        for (int i = 0; i < this.players.length; i++)
+        {
+            if (i == 0)
+            {
+                numberOfTiles = 15;
+            }
+            else
+            {
+                numberOfTiles = 14;
+            }
 
+            for (int k = 0; k < numberOfTiles; k++)
+            {
+                this.players[i].playerTiles[k] = this.tiles[distributionNumber];
+                distributionNumber++;
+            }
+        }
+
+        // distributed tileas are removed.
+        for (int i = 0; i < this.tileCount; i++)
+        {
+            if (i < distributionNumber)
+            {
+                this.tiles[i] = this.tiles[i + distributionNumber];
+            }
+            else
+            {
+                this.tiles[i] = new Tile(0);
+            }
+        }
     }
 
     /*
