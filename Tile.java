@@ -14,7 +14,7 @@ public class Tile {
      * return true if they are matching, false otherwise
      */
     public boolean matchingTiles(Tile t) {
-        return false;
+        return this.value == t.getValue();
     }
 
     /*
