@@ -39,6 +39,24 @@ public class Player {
      */
     public int findLongestChain() {
         int longestChain = 0;
+        int longOfChain = 1;
+        
+        for (int i = 0; i < this.numberOfTiles - 1; i++)
+        {
+            if (this.playerTiles[i + 1].getValue() - this.playerTiles[i].getValue() == 1)
+            {
+                longOfChain++;
+
+                if (longOfChain >= longestChain)
+                {
+                    longestChain = longOfChain;
+                }
+            }
+            else 
+            {
+                longOfChain = 1;
+            }
+        }
 
         return longestChain;
     }
