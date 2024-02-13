@@ -1,3 +1,6 @@
+import java.sql.Array;
+import java.util.Arrays;
+
 public class SimplifiedOkeyGame {
 
     Player[] players;
@@ -55,15 +58,18 @@ public class SimplifiedOkeyGame {
         // distributed tileas are removed.
         for (int i = 0; i < this.tileCount; i++)
         {
-            if (i < distributionNumber)
+            if (i <= distributionNumber)
             {
-                this.tiles[i] = this.tiles[i + distributionNumber];
+                if (i + distributionNumber < this.tileCount)
+                {
+                    this.tiles[i] = this.tiles[i + distributionNumber];
+                }
             }
             else
             {
                 this.tiles[i] = new Tile(0);
             }
-        }
+        } 
     }
 
     /*
