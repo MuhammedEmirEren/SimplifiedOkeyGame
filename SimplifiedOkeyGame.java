@@ -89,7 +89,21 @@ public class SimplifiedOkeyGame {
      * TODO: should randomly shuffle the tiles array before game starts
      */
     public void shuffleTiles() {
+        Tile[] helperList = new Tile[104];
+        int currentLength = 104;
+        for(int i = 0; i < tiles.length; i++)
+        {
+            int indexOfChosen = (int)(Math.random() * (currentLength));
+            helperList[i] = tiles[indexOfChosen];
 
+            // Swapping
+            Tile temp = tiles[currentLength - 1];
+            tiles[currentLength - 1] = tiles[indexOfChosen];
+            tiles[indexOfChosen] = temp;
+
+            currentLength--;
+        }
+        tiles = helperList;
     }
 
     /*
