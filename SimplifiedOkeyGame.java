@@ -127,6 +127,7 @@ public class SimplifiedOkeyGame {
      * if multiple players have the same length may return multiple players
      */
     public Player[] getPlayerWithHighestLongestChain() {
+
         Player[] winners = new Player[1];
 
         return winners;
@@ -171,7 +172,40 @@ public class SimplifiedOkeyGame {
      * you may choose based on how useful each tile is
      */
     public void discardTileForComputer() {
+        boolean duplicateFound = false;
 
+        int leastUsefulIndex = 0;
+
+        for(int i = 0; i < players[currentPlayerIndex].numberOfTiles && !duplicateFound; i++)
+        {
+            if(players[currentPlayerIndex].getTiles()[i].matchingTiles(players[currentPlayerIndex].getTiles()[i+1]))
+            {
+                leastUsefulIndex = i; 
+                duplicateFound = true; 
+            }
+        }
+
+        if(!duplicateFound)
+        {
+            int longestChain = 0;
+
+            for (int i = 0; i < players[currentPlayerIndex].numberOfTiles; i++)
+            {
+                Tile controllerTile = players[currentPlayerIndex].getTiles()[i];
+
+                players[currentPlayerIndex].getAndRemoveTile(i);
+                int tempLongest = players[currentPlayerIndex].findLongestChain();
+                players[currentPlayerIndex].addTile(controllerTile);
+
+                if(tempLongest > longestChain)
+                {
+                    leastUsefulIndex = i;
+                    longestChain = tempLongest;
+                }
+            }
+        }
+        
+        this.discardTile(leastUsefulIndex);
     }
 
     /*
