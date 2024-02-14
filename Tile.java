@@ -42,7 +42,7 @@ public class Tile {
      * otherwise, it should return false (they cannot form a chain)
      */
     public boolean canFormChainWith(Tile t) {
-        return false;
+       return (this.value - t.value == 1 || this.value - t.value == -1);
     }
 
     public String toString() {
