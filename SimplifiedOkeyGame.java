@@ -166,7 +166,7 @@ public class SimplifiedOkeyGame {
      * that player's tiles
      */
     public void discardTile(int tileIndex) {
-
+        lastDiscardedTile = players[currentPlayerIndex].getAndRemoveTile(tileIndex);
     }
 
     public void displayDiscardInformation() {
