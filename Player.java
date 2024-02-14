@@ -80,7 +80,24 @@ public class Player {
      * then shift the remaining tiles to the right by one
      */
     public void addTile(Tile t) {
+        int addInHere = 14; // if the new tile's value is bigger than the values of all the others, new tile will be the last one.
+        boolean stopSearching = false;
 
+        for(int i = 0; i < this.numberOfTiles && !stopSearching; i++)
+        {
+            if(playerTiles[i].getValue() >= t.getValue())
+            {
+                addInHere = i;
+                stopSearching = true;
+            }
+        }
+
+        for (int i = 14; i > addInHere; i--)
+        {
+            playerTiles[i] = playerTiles[i-1];
+        }
+
+        playerTiles[addInHere] = t;
     }
 
     /*
