@@ -51,6 +51,7 @@ public class SimplifiedOkeyGame {
             for (int k = 0; k < numberOfTiles; k++)
             {
                 this.players[i].playerTiles[k] = this.tiles[distributionNumber];
+                this.players[i].numberOfTiles++;
                 distributionNumber++;
             }
         }
