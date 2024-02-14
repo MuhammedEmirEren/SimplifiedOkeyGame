@@ -66,11 +66,11 @@ public class Player {
      */
     public Tile getAndRemoveTile(int index) {
         Tile removedTile = this.playerTiles[index];
-        for(int i = index; i < numberOfTiles - 1; i++)
+        for(int i = index; i < this.numberOfTiles - 1; i++)
         {
             this.playerTiles[i] = this.playerTiles[i + 1];
         }
-        numberOfTiles--;
+        this.numberOfTiles--;
         return removedTile;
     }
 
@@ -98,6 +98,7 @@ public class Player {
         }
 
         playerTiles[addInHere] = t;
+        this.numberOfTiles++;
     }
 
     /*
