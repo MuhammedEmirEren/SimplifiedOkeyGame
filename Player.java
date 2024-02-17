@@ -17,7 +17,7 @@ public class Player {
      * check the assigment text for more details on winning condition
      */
     public boolean checkWinning() {
-        if (findLongestChain() == 14)
+        if (findLongestChain() >= 14)
         {
             return true;
         }
@@ -33,16 +33,22 @@ public class Player {
     public int findLongestChain() {
         int longestChain = 0;
         int longOfChain = 1;
-        
+        int countOfSames = 0;
+
         for (int i = 0; i < this.numberOfTiles - 1; i++)
         {
-            if (this.playerTiles[i + 1].canFormChainWith(this.playerTiles[i]))
+            if (this.playerTiles[i + 1].getValue() - (this.playerTiles[i]).getValue() == 1 && countOfSames <= 1)
             {
                 longOfChain++;
 
                 if (longOfChain >= longestChain)
                 {
                     longestChain = longOfChain;
+                }
+
+                if (this.playerTiles[i + 1].getValue() == (this.playerTiles[i]).getValue())
+                {
+                    countOfSames++;
                 }
             }
             else 
