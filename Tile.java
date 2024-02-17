@@ -53,4 +53,8 @@ public class Tile {
         return value;
     }
 
+    public void setTileValue(int number)
+    {
+        this.value = number;
+    }
 }
