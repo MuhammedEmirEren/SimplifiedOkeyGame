@@ -90,7 +90,7 @@ public class ApplicationMain {
                     game.passTurnToNextPlayer();
                 }
                 else{
-                    if(!game.didGameFinish()) {
+                    if(game.didGameFinish()) {
                         // if we finish the hand we win
                         System.out.println("Congratulations, you win!");    
                     }
@@ -127,7 +127,7 @@ public class ApplicationMain {
                     game.passTurnToNextPlayer();
                 }
                 else{
-                    if(!game.didGameFinish()) {
+                    if(game.didGameFinish()) {
                         // current computer character wins
                         System.out.println(game.getCurrentPlayerName() + " wins.");
                     }
