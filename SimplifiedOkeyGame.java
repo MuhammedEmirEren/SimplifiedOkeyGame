@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SimplifiedOkeyGame {
@@ -77,7 +78,10 @@ public class SimplifiedOkeyGame {
      * it should return the toString method of the tile so that we can print what we picked
      */
     public String getLastDiscardedTile() {
-        return null;
+        if(lastDiscardedTile!=null){
+            return lastDiscardedTile.toString();
+        }
+        return "There is no tile in the table yet.";
     }
 
     /*
@@ -120,17 +124,27 @@ public class SimplifiedOkeyGame {
      * finished the game. use checkWinning method of the player class to determine
      */
     public boolean didGameFinish() {
-        return false;
+        return players[currentPlayerIndex].checkWinning();
     }
 
     /* TODO: finds the player who has the highest number for the longest chain
      * if multiple players have the same length may return multiple players
      */
     public Player[] getPlayerWithHighestLongestChain() {
-
-        Player[] winners = new Player[1];
-
-        return winners;
+        
+        ArrayList<Player> winners=new ArrayList<>();
+        int maxChain=0;
+        for(Player p:players){
+            if(p.findLongestChain()>maxChain){
+                winners.clear();
+                winners.add(p);
+                maxChain=p.findLongestChain();
+            }
+            else if(p.findLongestChain()==maxChain){
+                winners.add(p);
+            }
+        }
+        return winners.toArray(new Player[0]);
     }
     
     /*
