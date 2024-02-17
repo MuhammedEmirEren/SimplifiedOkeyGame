@@ -19,13 +19,6 @@ public class Player {
     public boolean checkWinning() {
         if (findLongestChain() == 14)
         {
-            for (int i = 0; i < 13; i++)
-            {
-                if( this.playerTiles[i + 1].getValue() - this.playerTiles[i].getValue() != 1)
-                {
-                    return false;
-                }
-            }
             return true;
         }
         return false;
@@ -71,6 +64,7 @@ public class Player {
             this.playerTiles[i] = this.playerTiles[i + 1];
         }
         this.numberOfTiles--;
+        this.playerTiles[this.playerTiles.length - 1].setTileValue(0);
         return removedTile;
     }
 
