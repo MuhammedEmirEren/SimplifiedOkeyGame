@@ -83,6 +83,7 @@ public class SimplifiedOkeyGame {
      */
     public String getLastDiscardedTile() {
         if(lastDiscardedTile!=null){
+            players[currentPlayerIndex].addTile(lastDiscardedTile);
             return lastDiscardedTile.toString();
         }
         return "There is no tile in the table yet.";
@@ -135,7 +136,7 @@ public class SimplifiedOkeyGame {
      * if multiple players have the same length may return multiple players
      */
     public Player[] getPlayerWithHighestLongestChain() {
-        
+
         ArrayList<Player> winners=new ArrayList<>();
         int maxChain=0;
         for(Player p:players){
