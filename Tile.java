@@ -52,9 +52,4 @@ public class Tile {
     public int getValue() {
         return value;
     }
-
-    public void setTileValue(int number)
-    {
-        this.value = number;
-    }
 }

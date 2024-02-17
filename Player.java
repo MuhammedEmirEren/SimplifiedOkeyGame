@@ -33,11 +33,10 @@ public class Player {
     public int findLongestChain() {
         int longestChain = 0;
         int longOfChain = 1;
-        int countOfSames = 0;
 
         for (int i = 0; i < this.numberOfTiles - 1; i++)
         {
-            if (this.playerTiles[i + 1].getValue() - (this.playerTiles[i]).getValue() <= 1 && countOfSames <= 1)
+            if (this.playerTiles[i + 1].getValue() - (this.playerTiles[i]).getValue() == 1)
             {
                 longOfChain++;
 
@@ -45,11 +44,10 @@ public class Player {
                 {
                     longestChain = longOfChain;
                 }
+            }
+            else if(this.playerTiles[i + 1].getValue() == (this.playerTiles[i]).getValue())
+            {
 
-                if (this.playerTiles[i + 1].getValue() == (this.playerTiles[i]).getValue())
-                {
-                    countOfSames++;
-                }
             }
             else 
             {
@@ -70,7 +68,6 @@ public class Player {
             this.playerTiles[i] = this.playerTiles[i + 1];
         }
         this.numberOfTiles--;
-        this.playerTiles[this.playerTiles.length - 1].setTileValue(0);
         return removedTile;
     }
 
