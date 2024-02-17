@@ -37,7 +37,7 @@ public class Player {
 
         for (int i = 0; i < this.numberOfTiles - 1; i++)
         {
-            if (this.playerTiles[i + 1].getValue() - (this.playerTiles[i]).getValue() == 1 && countOfSames <= 1)
+            if (this.playerTiles[i + 1].getValue() - (this.playerTiles[i]).getValue() <= 1 && countOfSames <= 1)
             {
                 longOfChain++;
 
