@@ -55,9 +55,12 @@ public class SimplifiedOkeyGame {
             }
         }
 
+
+
         // distributed tileas are removed.
         for (int i = 0; i < this.tileCount; i++)
         {
+
             if (i <= distributionNumber)
             {
                 if (i + distributionNumber < this.tileCount)
@@ -70,6 +73,7 @@ public class SimplifiedOkeyGame {
                 this.tiles[i] = new Tile(0);
             }
         } 
+        tileCount = 104 - 57;
     }
 
     /*
