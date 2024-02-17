@@ -129,7 +129,7 @@ public class SimplifiedOkeyGame {
      * finished the game. use checkWinning method of the player class to determine
      */
     public boolean didGameFinish() {
-        return players[currentPlayerIndex].checkWinning();
+        return !players[currentPlayerIndex].checkWinning();
     }
 
     /* TODO: finds the player who has the highest number for the longest chain
