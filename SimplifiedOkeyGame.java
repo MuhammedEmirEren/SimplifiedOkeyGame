@@ -195,7 +195,7 @@ public class SimplifiedOkeyGame {
 
         int leastUsefulIndex = 0;
 
-        for(int i = 0; i < players[currentPlayerIndex].numberOfTiles && !duplicateFound; i++)
+        for(int i = 0; i < players[currentPlayerIndex].numberOfTiles - 1 && !duplicateFound; i++)
         {
             if(players[currentPlayerIndex].getTiles()[i].matchingTiles(players[currentPlayerIndex].getTiles()[i+1]))
             {
