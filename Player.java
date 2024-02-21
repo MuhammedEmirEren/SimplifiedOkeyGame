@@ -47,7 +47,8 @@ public class Player {
             }
             else if(this.playerTiles[i + 1].getValue() == (this.playerTiles[i]).getValue())
             {
-
+                // This is for not breaking the longest chain if two tile has the same value.
+                // Normally continue; can be used but I do not know if it is okey to use it in CS102
             }
             else 
             {
